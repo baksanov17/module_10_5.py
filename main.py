@@ -20,13 +20,13 @@ start = time()
 for file in filenames:
     read_info(file)
 end = time()
-print(f'{end - start} (линейный)')
+print(f'Время линейного вычисления: {end - start}')
 
 if __name__ == '__main__':
     start = time()
     with multiprocessing.Pool(processes=len(filenames)) as pool:
         pool.map(read_info, filenames)
     end = time()
-    print(f'{end - start} (многопроцессорный)')
+    print(f'Время многопроцессорного вычисления: {end - start}')
 
 
